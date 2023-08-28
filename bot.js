@@ -17,29 +17,43 @@ wppconnect.create({
 
 
 function stages(client, message) {
-    stage = userStages[message.from];
-    switch (stage) {
-        case 'Nome':
-            const nome = message.body;
-            sendWppMessage(client, message.from, 'Obrigada, ' + nome);
-            sendWppMessage(client, message.from, 'Digite seu *CPF*:');
-            userStages[message.from] = 'CPF';
-            break;
-        case 'CPF':
-            const cpf = message.body;
-            sendWppMessage(client, message.from, 'Obrigada por informar seu CPF: ' + cpf);
-            sendWppMessage(client, message.from, 'Fim');
-            userStages[message.from] = 'Fim';
-            break;
-        case 'Fim':
-            sendWppMessage(client, message.from, 'Fim');
-            break;
-        default: // Olá 
-            console.log('*Usuário atual* from:' + message.from);
-            sendWppMessage(client, message.from, 'Bem vindo ao Robô de Whatsapp do AppBasicão!');
-            sendWppMessage(client, message.from, 'Digite seu *NOME*:');
-            userStages[message.from] = 'Nome';
+
+    if (message.isGroupMsg === false) {
+
+        stage = userStages[message.from];
+
+        stage = userStages[message.from];
+        switch (stage) {
+            case 'Nome':
+                const nome = message.body;
+                sendWppMessage(client, message.from, 'Obrigada, ' + nome);
+                sendWppMessage(client, message.from, 'Digite seu *CPF*:');
+                userStages[message.from] = 'CPF';
+                break;
+            case 'CPF':
+                const cpf = message.body;
+                sendWppMessage(client, message.from, 'Obrigada por informar seu CPF: ' + cpf);
+                sendWppMessage(client, message.from, 'Fim');
+                userStages[message.from] = 'Fim';
+                break;
+            case 'Fim':
+                sendWppMessage(client, message.from, 'Fim');
+                break;
+            default: // Olá 
+                console.log('*Usuário atual* from:' + message.from);
+                sendWppMessage(client, message.from, 'Bem vindo ao Robô de Whatsapp Da feira de profissões!');
+                sendWppMessage(client, message.from, 'Por Favor, Informe seu *NOME*:');
+                userStages[message.from] = 'Nome';
+        }
+
+
+
     }
+
+    else {
+        console.log('Mensagem recebida de um grupo. Não será processada.');
+    }
+
 }
 
 
@@ -54,5 +68,5 @@ function sendWppMessage(client, sendTo, text) {
         });
 }
 
- 
+
 

@@ -1,7 +1,6 @@
 {
   "name": "bot_whats",
   "version": "1.0.0",
-  "description": "",
   "main": "bot.js",
   "scripts": {
     "start": "nodemon ./bot.js",
@@ -14,5 +13,14 @@
     "@wppconnect-team/wppconnect": "^1.28.0",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlessandroArauj/bot_whatspp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlessandroArauj/bot_whatspp/issues"
+  },
+  "homepage": "https://github.com/AlessandroArauj/bot_whatspp#readme",
+  "description": ""
 }
