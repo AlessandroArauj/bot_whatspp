@@ -70,3 +70,4 @@ function sendWppMessage(client, sendTo, text) {
 
 
 
+//mudança
