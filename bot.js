@@ -29,14 +29,14 @@ async function stages(client, message) {
         switch (stage) {
 
             case 'option':
-                if (message.body == 'SIM') {
+                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
                     sendWppMessage(client, message.from, `*1* - Sobre o evento`);
                     sendWppMessage(client, message.from, '*2* - Cursos integrados');
                     sendWppMessage(client, message.from, '*3* - Canrtina/Lanchonete');
                     userStages[message.from] = 'Nome'
                 }
-                else if(message.body == 'Nao'){
+                else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
                     sendWppMessage(client, message.from, 'Fim');
                 }
                 break;
