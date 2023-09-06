@@ -31,10 +31,10 @@ async function stages(client, message) {
             case 'option':
                 if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                    sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏿‍💼`);
-                    sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏿‍🎓');
+                    sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
+                    sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏻‍🎓');
                     sendWppMessage(client, message.from, '*3* - Cantina/Lanchonete🍱');
-                    sendWppMessage(client, message.from, '*4* - Outras exposições');
+                    sendWppMessage(client, message.from, '*4* - Outras exposições📰');
                     sendWppMessage(client, message.from, '*5* - Exposições de Cada Sala e Andar🏢');
                     userStages[message.from] = 'Nome'
                 }
@@ -85,16 +85,17 @@ async function stages(client, message) {
 
                 else if(message.body == '4'){
                     sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                    sendWppMessage(client, message.from, `•CEDESP AVE MARIA
+                    sendWppMessage(client, message.from, `Exposições do CEDESP AVE MARIA
     •Assistente Administrativo
     •Logística
     •Metalmecânica – Ajustador e Torneiro Mecânico
     •Tecnologia de Redes e Manutenção de Computadores
-•Troca de Livros 
-•Oficina de Eletromecânica de Autos
-•Oficina de Auto Elétrica
-•Oficina Eletrotécnica
-•Livros do Frei
+Exposições do Instituto
+    •Troca de Livros 
+    •Oficina de Eletromecânica de Autos
+    •Oficina de Auto Elétrica
+    •Oficina Eletrotécnica
+    •Livros do Frei
 `
 
                     );
@@ -190,8 +191,8 @@ async function stages(client, message) {
 
 
 
-                sendWppMessage(client, message.from, `Ola, seja bem vindo ao assistente da feira de profissões do curso, estou aqui para fornecer informações sobre a feira.
-                    Quer continuar? *SIM* ou *NÃO*`);
+                sendWppMessage(client, message.from, `Ola, eu sou o assistente da feira de profissões do Instituo Social Nossa Senhora de Fátima 🤖, estou aqui para fornecer informações sobre a feira de profissões do dia 30 de setembro.
+                    Quer continuar para saber mais informações? *SIM* ou *NÃO*`);
 
                 userStages[message.from] = 'option'
 
