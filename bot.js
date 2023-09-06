@@ -2,6 +2,7 @@ const wppconnect = require('@wppconnect-team/wppconnect');
 
 var userStages = [];
 
+
 wppconnect.create({
     session: 'whatsbot',
     autoClose: false,
@@ -18,7 +19,6 @@ wppconnect.create({
 
 async function stages(client, message) {
 
-
     if (message.isGroupMsg === false) {
 
         stage = userStages[message.from];
@@ -29,11 +29,11 @@ async function stages(client, message) {
         switch (stage) {
 
             case 'option':
-                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim') {
+                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                    sendWppMessage(client, message.from, `*1* - Sobre o evento`);
+                    sendWppMessage(client, message.from, `*1* - Empresas convidadas`);
                     sendWppMessage(client, message.from, '*2* - Cursos integrados');
-                    sendWppMessage(client, message.from, '*3* - Canrtina/Lanchonete');
+                    sendWppMessage(client, message.from, '*3* - Cantina/Lanchonete');
                     userStages[message.from] = 'Nome'
                 }
                 else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
@@ -41,18 +41,24 @@ async function stages(client, message) {
                 }
                 break;
 
-
             case 'Nome':
-                sendWppMessage(client, message.from, 'Obrigada,');
-                sendWppMessage(client, message.from, 'Digite seu *CPF*:');
-                userStages[message.from] = 'CPF';
+                if(message.body == '1'){
+                    sendWppMessage(client, message.from, 'o evento...');
+                        userStages[message.from] = 'option';
+                }
+              else if(message.body == '2'){
+                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
+                    sendWppMessage(client, message.from, 'informatica,...');
+                    userStages[message.from] = 'option';
+                }
+                else if(message.body == '3'){
+                    sendWppMessage(client, message.from, 'o cardapio...'); 
+                    userStages[message.from] = 'option';
+                }
                 break;
 
-            case 'CPF':
-                sendWppMessage(client, message.from, 'Obrigada por informar seu CPF: ');
-                sendWppMessage(client, message.from, 'Fim');
-                userStages[message.from] = 'Fim';
-                break;
+
+
 
 
 
@@ -64,7 +70,7 @@ async function stages(client, message) {
 
 
 
-            default: // Olá 
+            default: 
 
 
                 console.log('*Usuário atual* from:' + message.from);
@@ -79,12 +85,6 @@ async function stages(client, message) {
 
 
         }
-
-
-
-
-
-
 
 
     }
