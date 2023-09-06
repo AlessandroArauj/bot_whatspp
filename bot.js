@@ -199,8 +199,18 @@ Exposições do Instituto
 
 
             case 'Fim':
-                    sendWppMessage(client, message.from, 'Fim');
+                sendWppMessage(client, message.from, `Fim,
+
+quer voltar pro inicio? digite *1*`); 
+
+            userStages[message.from == '1'] = 'option';
+
                 break;
+
+
+
+
+
 
                 case 'C':
 
@@ -216,12 +226,8 @@ Exposições do Instituto
                 }
 
                     else{
-                        sendWppMessage(client, message.from, `Fim,
-                        
-quer voltar pro inicio? digite *SIM*`);
-                         if(message == 'Sim'){
-                            userStages[message.from] = 'option'
-                         }
+                        sendWppMessage(client, message.from, `i`);
+                         userStages[message.from] = 'Fim';
                     }
                     break;
 
