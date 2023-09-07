@@ -29,7 +29,7 @@ async function stages(client, message) {
         switch (stage) {
 
             case 'option':
-                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar') {
+                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar' || message.body == '1') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
                     sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
                     sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏻‍🎓');
@@ -39,55 +39,13 @@ async function stages(client, message) {
                     userStages[message.from] = 'Nome'
                 }
                 else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
-                    sendWppMessage(client, message.from, 'Fim');
+                    sendWppMessage(client, message.from, `Fim
+`);
                 }
-                break;
-
-
-
-                case 'Cardapio':
-
-                if(message.body == '1'){
-                        sendWppMessage(client, message.from, `Doces:
-1.Sonho(creme, chocolate e doce de leite)
-2.Bolo(chocolate)                                     
-                 `);
-                 
-                 sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                 userStages[message.from] = 'C'
-                    }
-
-                    else if(message.body == '2'){
-                        sendWppMessage(client, message.from, `Salgados:
-1.Mini Pizza
-2.Croissant
-3.Baguete Recheada
-4.Hambúrguer
-                    `)
-                    sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                    userStages[message.from] = 'C'
-                }
-
-                    else if(message.body == '3'){
-                        sendWppMessage(client, message.from, `Bebidas:
-1.Àgua
-2.Café
-3.Coca-cola
-4.Sprite`
-                   )
-                   sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                   userStages[message.from] = 'C'
-                }
-
-                else if(message.body == 'Voltar'){
-                    sendWppMessage(client, message.from, 'deseja mesmo voltar? *SIM* ou *NÃO*');
-                    userStages[message.from] = 'option2';
-                }
-
                 break;
 
                 case 'option2':
-                    if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar') {
+                    if (message.body == '1') {
                         sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
                         sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
                         sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏻‍🎓');
@@ -96,8 +54,9 @@ async function stages(client, message) {
                         sendWppMessage(client, message.from, '*5* - Exposições de Cada Sala e Andar🏢');
                         userStages[message.from] = 'Nome'
                     }
-
                     break;
+
+
 
 
 
@@ -136,8 +95,8 @@ async function stages(client, message) {
 
                     `); 
                     
-                        sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                        userStages[message.from] = 'Cardapio';
+                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
+                    userStages[message.from] = 'Cardapio';
 
 
                 }
@@ -196,22 +155,6 @@ Exposições do Instituto
 
 
 
-
-
-            case 'Fim':
-                sendWppMessage(client, message.from, `Fim,
-
-quer voltar pro inicio? digite *1*`); 
-
-            userStages[message.from == '1'] = 'option';
-
-                break;
-
-
-
-
-
-
                 case 'C':
 
                 if(message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim'){
@@ -225,16 +168,62 @@ quer voltar pro inicio? digite *1*`);
                     userStages[message.from] = 'Cardapio'
                 }
 
-                    else{
-                        sendWppMessage(client, message.from, `i`);
-                         userStages[message.from] = 'Fim';
+                    else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
+                        sendWppMessage(client, message.from, `Fim,
+            
+quer voltar pro inicio? digite *1*`); 
+                                
+                        userStages[message.from] = 'option2'; 
                     }
                     break;
 
 
 
 
+                    case 'Cardapio':
 
+                    if(message.body == '1'){
+                            sendWppMessage(client, message.from, `Doces:
+1.Sonho(creme, chocolate e doce de leite)
+2.Bolo(chocolate)                                     
+                     `);
+                     
+                     sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
+                     userStages[message.from] = 'C'
+                        }
+    
+                        else if(message.body == '2'){
+                            sendWppMessage(client, message.from, `Salgados:
+1.Mini Pizza
+2.Croissant
+3.Baguete Recheada
+4.Hambúrguer
+                        `)
+                        sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
+                        userStages[message.from] = 'C'
+                    }
+    
+                        else if(message.body == '3'){
+                            sendWppMessage(client, message.from, `Bebidas:
+1.Àgua
+2.Café
+3.Coca-cola
+4.Sprite`
+                       )
+                       sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
+                        userStages[message.from] = 'C'
+
+                    }
+    
+                    else if(message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar'){
+                        sendWppMessage(client, message.from, `Fim,
+            
+quer voltar pro inicio? digite *1*`); 
+                                
+                        userStages[message.from] = 'option2'; 
+                    }
+    
+                    break;
 
             default: 
 
