@@ -41,7 +41,7 @@ async function stages(client, message) {
                     userStages[message.from] = 'Nome'; 
 
                 }
-                else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
+                else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não' || message.body == 'Fim' || message.body == 'fim' || message.body == 'FIM'){
                         sendWppMessage(client, message.from, `Fim,
             
 quer voltar pro inicio? digite *1*`); 
@@ -60,7 +60,7 @@ quer voltar pro inicio? digite *1*`);
                         sendWppMessage(client, message.from, `*5* - Padaria do frei`);
                         sendWppMessage(client, message.from, `*6* - Sobre a feira de profissões`);
                         sendWppMessage(client, message.from, `*7* - Encerrar Atendimento`);
-                        userStages[message.from] = 'nome:'; 
+                        userStages[message.from] = 'Nome:'; 
                     }
                     break;
 
@@ -69,7 +69,7 @@ quer voltar pro inicio? digite *1*`);
                         sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
                         sendWppMessage(client, message.from, '*2* - Outras exposições📰');
                         sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
-                        userStages[message.from] = 'Nome'
+                        userStages[message.from] = 'optionfeira'
                     break;    
 
             case 'Nome':
@@ -78,9 +78,8 @@ quer voltar pro inicio? digite *1*`);
 acaonsfatima.org.br
 
 Acesse também nossas normas de convivência:
-https://acaonsfatima.org.br/2022/01/22/normas-2023/`);
-
-                    sendWppMessage(client, message.from, `Contato:
+https://acaonsfatima.org.br/2022/01/22/normas-2023/
+Contato:
 Instituto Social Nossa Senhora de Fátima
 
 Av. Coronel Octaviano de Freitas Costa, 463 – Veleiros – São Paulo
@@ -91,6 +90,12 @@ acaonsfatima.org.br
 
 (11)   5687-8876
 (11) 96398-6252`);
+
+sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+Para finalizar o atendimento digite *Fim*`);
+
+userStages[message.from] = 'option'
+
                 }
 
                 else if(message.body == '2'){
@@ -103,20 +108,33 @@ acaonsfatima.org.br
 - Comunicação Visual: Design e produção gráfica, 12 meses, carga horária total: 1000 horas.`);
 
                     sendWppMessage(client, message.from, `Cursos de Qualificação:
-- Eletrotécnica: Eletricidade e sistemas eletrônicos, 12 meses, carga horária total: 1000 horas. 
-- Eletromecânica: Manutenção de sistemas mecânicos e elétricos, 12 meses, carga horária total: 1000 horas.`);
+- *Eletrotécnica*: Eletricidade e sistemas eletrônicos, 12 meses, carga horária total: 1000 horas.
+ 
+- *Eletromecânica*: Manutenção de sistemas mecânicos e elétricos, 12 meses, carga horária total: 1000 horas.`);
 
 sendWppMessage(client, message.from, `Cursos Livres:
-- Inglês: Com diversos níveis e horários disponíveis (tens, básico, médio, pré-avançado e avançado), consultar os horários disponíveis para cada curso, 12 meses, carga horária total: 500 horas. 
-- Eletricista Instalador: Instalação e manutenção elétrica, 06 meses, noturno, carga horária total: 120 horas
-- Informática Básica – Excel: Conhecimentos básicos de informática e pacote office, 06 meses, noturno, carga horária total: 120 horas`);
-                }
+- *Inglês*: Com diversos níveis e horários disponíveis (tens, básico, médio, pré-avançado e avançado), consultar os horários disponíveis para cada curso, 12 meses, carga horária total: 500 horas.
+
+- *Eletricista Instalador*: Instalação e manutenção elétrica, 06 meses, noturno, carga horária total: 120 horas
+
+- *Informática Básica* – Excel: Conhecimentos básicos de informática e pacote office, 06 meses, noturno, carga horária total: 120 horas`);
+                
+sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+Para finalizar o atendimento digite *Fim*`);
+
+userStages[message.from] = 'option'
+}
 
                 else if(message.body == '3'){
                     sendWppMessage(client, message.from, `As inscrições para 2024 começaram em 17 de outubro de 2023, o candidato deve se inscrever pelo aplicativo e agendar o dia e a hora para finalizar a inscrição no instituto.`); 
                     sendWppMessage(client, message.from, `Após finalizar a sua inscrição, você receberá o manual do candidato, onde terá o número de sua inscrição, o local, a data e a hora da prova do processo seletivo. No manual também haverá informações do procedimento de matrícula caso seja aprovado(a).`);
                     sendWppMessage(client, message.from, `Acompanhe nossas redes sociais e fique por dentro de tudo que acontece no instituto, através de nossas redes informaremos, o link para baixar o aplicativo das inscrições, a data de início, data da prova, resultado da prova.
 acaonsfatima.org.br, instagram, facebook e linkedin`);
+
+sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+Para finalizar o atendimento digite *Fim*`);
+
+userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '4'){
@@ -124,10 +142,20 @@ acaonsfatima.org.br, instagram, facebook e linkedin`);
                     sendWppMessage(client, message.from, `O resultado do processo seletivo ficará disponível em nosso site, caso seu nome esteja na lista de aprovados, você deverá comparecer no instituto para efetuar sua matrícula.`);
                     sendWppMessage(client, message.from, `Acompanhe nossas redes sociais e fique por dentro de tudo que acontece no instituto 
 acaonsfatima.org.br, instagram, facebook e linkedin`);
+
+sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+Para finalizar o atendimento digite *Fim*`);
+
+userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '5'){
                     sendWppMessage(client, message.from, `Nossa padaria oferece uma variedade de produtos que vão além de simples pães, mas sim, do tradicional pão fresquinho, pães salgados, croissants, bolos, pães doces, torradas e muito mais. Os produtos são preparados diariamente, com muito carinho e qualidade.`);
+                
+                    sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+Para finalizar o atendimento digite *Fim*`);
+
+userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '6'){
@@ -135,14 +163,14 @@ acaonsfatima.org.br, instagram, facebook e linkedin`);
                     sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
                     sendWppMessage(client, message.from, '*2* - Outras exposições📰');
                     sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
-                    userStages[message.from] = 'Nome'
+                    userStages[message.from] = 'feira'
                 }
 
 
                 else if(message.body == '7'){
                     sendWppMessage(client, message.from, `Esperamos que as informações tenham sido úteis! Caso tenha mais alguma dúvida ou precisar de informações adicional, entre em contato conosco.
                     
-Para iniciar o programa novamente digite *Voltar*`);
+Para iniciar o atendimento novamente digite *Voltar*`);
                     userStages[message.from] = 'option'
                 }
             break;
