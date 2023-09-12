@@ -31,16 +31,22 @@ async function stages(client, message) {
             case 'option':
                 if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar' || message.body == '1') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                    sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
-                    sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏻‍🎓');
-                    sendWppMessage(client, message.from, '*3* - Cantina/Lanchonete🍱');
-                    sendWppMessage(client, message.from, '*4* - Outras exposições📰');
-                    sendWppMessage(client, message.from, '*5* - Exposições de Cada Sala e Andar🏢');
-                    userStages[message.from] = 'Nome'
+                    sendWppMessage(client, message.from, `*1* - Sobre a Escola do frei`);
+                    sendWppMessage(client, message.from, `*2* - Cursos oferecidos pela instituição`);
+                    sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo`);
+                    sendWppMessage(client, message.from, `*4* - Matricula / Documentação`);
+                    sendWppMessage(client, message.from, `*5* - Padaria do frei`);
+                    sendWppMessage(client, message.from, `*6* - Sobre a feira de profissões`);
+                    sendWppMessage(client, message.from, `*7* - Encerrar Atendimento`);
+                    userStages[message.from] = 'feira'; 
+
                 }
                 else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
-                    sendWppMessage(client, message.from, `Fim
-`);
+                        sendWppMessage(client, message.from, `Fim,
+            
+quer voltar pro inicio? digite *1*`); 
+                                
+                    userStages[message.from] = 'option2'; 
                 }
                 break;
 
@@ -48,12 +54,18 @@ async function stages(client, message) {
                     if (message.body == '1') {
                         sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
                         sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
-                        sendWppMessage(client, message.from, '*2* - Cursos integrados👨🏻‍🎓');
-                        sendWppMessage(client, message.from, '*3* - Cantina/Lanchonete🍱');
-                        sendWppMessage(client, message.from, '*4* - Outras exposições📰');
-                        sendWppMessage(client, message.from, '*5* - Exposições de Cada Sala e Andar🏢');
+                        sendWppMessage(client, message.from, '*2* - Outras exposições📰');
+                        sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
                         userStages[message.from] = 'Nome'
                     }
+                    break;
+
+                    case 'feira': 
+                        sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
+                        sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
+                        sendWppMessage(client, message.from, '*2* - Outras exposições📰');
+                        sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
+                        userStages[message.from] = 'Nome'
                     break;
 
 
@@ -74,35 +86,8 @@ async function stages(client, message) {
                     
                         userStages[message.from] = 'option';
                 }
-              else if(message.body == '2'){
-                    sendWppMessage(client, message.from, `•Informática👩‍💻
-•Administração👨‍💼
-•Eletrotécnica👩‍🏭
-•Eletromecânica👨‍🔧
-•Comunicação Visual👨🏻‍🎨
-•Secretariado✍🏼
-•Inglês🇺🇲`);
-                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                    userStages[message.from] = 'option';
-                }
 
-                else if(message.body == '3'){
-                    sendWppMessage(client, message.from, 'Digite o número da opção que deseja saber');
-                    sendWppMessage(client, message.from, `Cardápio📋:
-1.Doces🥯
-2.Salgados🍕
-3.Bebidas🧃
-
-                    `); 
-                    
-                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                    userStages[message.from] = 'Cardapio';
-
-
-                }
-                
-
-                else if(message.body == '4'){
+                else if(message.body == '2'){
                     sendWppMessage(client, message.from, `Exposições do CEDESP AVE MARIA
     •Assistente Administrativo
     •Logística
@@ -122,7 +107,7 @@ Exposições do Instituto
                     userStages[message.from] = 'option';
                 }
 
-                else if(message.body == '5'){
+                else if(message.body == '3'){
                     sendWppMessage(client, message.from, `Salas:
     •Sala 4: Ótica Brauzo
     •Sala 5: Apresentação de Cursos
@@ -155,75 +140,6 @@ Exposições do Instituto
 
 
 
-                case 'C':
-
-                if(message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim'){
-                    sendWppMessage(client, message.from, 'Digite o número da opção que deseja saber');
-                    sendWppMessage(client, message.from, `Cardápio📋:
-1.Doces🥯
-2.Salgados🍕
-3.Bebidas🧃
-
-                    `); 
-                    userStages[message.from] = 'Cardapio'
-                }
-
-                    else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não'){
-                        sendWppMessage(client, message.from, `Fim,
-            
-quer voltar pro inicio? digite *1*`); 
-                                
-                        userStages[message.from] = 'option2'; 
-                    }
-                    break;
-
-
-
-
-                    case 'Cardapio':
-
-                    if(message.body == '1'){
-                            sendWppMessage(client, message.from, `Doces:
-1.Sonho(creme, chocolate e doce de leite)
-2.Bolo(chocolate)                                     
-                     `);
-                     
-                     sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                     userStages[message.from] = 'C'
-                        }
-    
-                        else if(message.body == '2'){
-                            sendWppMessage(client, message.from, `Salgados:
-1.Mini Pizza
-2.Croissant
-3.Baguete Recheada
-4.Hambúrguer
-                        `)
-                        sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                        userStages[message.from] = 'C'
-                    }
-    
-                        else if(message.body == '3'){
-                            sendWppMessage(client, message.from, `Bebidas:
-1.Àgua
-2.Café
-3.Coca-cola
-4.Sprite`
-                       )
-                       sendWppMessage(client, message.from, `Deseja conferir mais um cardapio? *SIM* *NÃO*`)
-                        userStages[message.from] = 'C'
-
-                    }
-    
-                    else if(message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar'){
-                        sendWppMessage(client, message.from, `Fim,
-            
-quer voltar pro inicio? digite *1*`); 
-                                
-                        userStages[message.from] = 'option2'; 
-                    }
-    
-                    break;
 
             default: 
 
@@ -232,14 +148,12 @@ quer voltar pro inicio? digite *1*`);
 
 
 
-                sendWppMessage(client, message.from, `Ola, eu sou o assistente da feira de profissões do Instituo Social Nossa Senhora de Fátima 🤖, estou aqui para fornecer informações sobre a feira de profissões do dia 30 de setembro.
+                sendWppMessage(client, message.from, `Olá! eu sou o assistente Virtual do Instituo Social Nossa Senhora de Fátima! 🤖
 
 Quer continuar para saber mais informações?
 *SIM* ou *NÃO*`);
 
                 userStages[message.from] = 'option'
-
-
 
         }
 
