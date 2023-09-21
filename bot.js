@@ -36,8 +36,7 @@ async function stages(client, message) {
                     sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo`);
                     sendWppMessage(client, message.from, `*4* - Matricula / Documentação`);
                     sendWppMessage(client, message.from, `*5* - Padaria do frei`);
-                    sendWppMessage(client, message.from, `*6* - Sobre a feira de profissões`);
-                    sendWppMessage(client, message.from, `*7* - Encerrar Atendimento`);
+                    sendWppMessage(client, message.from, `*6* - Encerrar Atendimento`);
                     userStages[message.from] = 'Nome'; 
 
                 }
@@ -171,90 +170,12 @@ userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '6'){
-                    sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                    sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
-                    sendWppMessage(client, message.from, '*2* - Outras exposições📰');
-                    sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
-                    userStages[message.from] = 'feira'
-                }
-
-
-                else if(message.body == '7'){
                     sendWppMessage(client, message.from, `Esperamos que as informações tenham sido úteis! Caso tenha mais alguma dúvida ou precisar de informações adicional, entre em contato conosco.
                     
 Para iniciar o atendimento novamente digite *Voltar*`);
                     userStages[message.from] = 'option'
                 }
             break;
-
-
-            case 'optionfeira':
-                if(message.body == '1'){
-                    sendWppMessage(client, message.from, `•Fios de Berenice: Corte de Mecha de Cabelo
-•Universidade Ítalo-Brasileiro
-•UNISA
-•STB Intercâmbio 
-•Instituto ITMídia
-•Nutricionista (Daniela Matos)
-•São Paulo Open Centre`);
-                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                    
-                        userStages[message.from] = 'option';
-                }
-
-                else if(message.body == '2'){
-                    sendWppMessage(client, message.from, `Exposições do CEDESP AVE MARIA
-    •Assistente Administrativo
-    •Logística
-    •Metalmecânica – Ajustador e Torneiro Mecânico
-    •Tecnologia de Redes e Manutenção de Computadores
-Exposições do Instituto
-    •Troca de Livros 
-    •Oficina de Eletromecânica de Autos
-    •Oficina de Auto Elétrica
-    •Oficina Eletrotécnica
-    •Livros do Frei
-`
-
-                    );
-                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-
-                    userStages[message.from] = 'option';
-                }
-
-                else if(message.body == '3'){
-                    sendWppMessage(client, message.from, `Salas:
-    •Sala 4: Ótica Brauzo
-    •Sala 5: Apresentação de Cursos
-    •Sala 6: Bate-papo sobre a escolha de posições
-
-1° ANDAR:
-    •Sala 17: Posto Saúde
-    •Sala 18: ADM: RH e POC
-    •Sala 19: Empreendedorismo e Logística (Acelerados)
-    •Sala 20: Inglês: Teste conhencimento
-
-2° ANDAR:
-    •Sala 24: Comunicação Visual
-    •Sala 25: Informática: Montagem, Configuração e Redes
-    •Sala 26: Informática: Programação
-    •Sala 27: Elaboração de currículo
-
-3° ANDAR:
-    •Auditório: Cate e Simulação de entrevista
-    •Auditório: SAS (Cad Único)
-    •Sala 33: Linkedin
-`
-
-                    );
-                    sendWppMessage(client, message.from, 'Para ver as outras opções digite *Voltar*');
-                    userStages[message.from] = 'option';
-                }
-
-                break;
-
-
-
 
             default: 
 
