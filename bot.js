@@ -29,21 +29,21 @@ async function stages(client, message) {
         switch (stage) {
 
             case 'option':
-                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar' || message.body == '1') {
+                if (message.body == 'Sim' || message.body == 'SIM' || message.body == 'sim' || message.body == 'S' || message.body == 's' || message.body == 'Voltar' || message.body == 'VOLTAR' || message.body == 'voltar' || message.body == '1') {
                     sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                    sendWppMessage(client, message.from, `*1* - Sobre a Escola do frei`);
-                    sendWppMessage(client, message.from, `*2* - Cursos oferecidos pela instituição`);
-                    sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo`);
-                    sendWppMessage(client, message.from, `*4* - Matricula / Documentação`);
-                    sendWppMessage(client, message.from, `*5* - Padaria do frei`);
-                    sendWppMessage(client, message.from, `*6* - Encerrar Atendimento`);
+                    sendWppMessage(client, message.from, `*1* - Sobre a Escola do frei🏫`);
+                    sendWppMessage(client, message.from, `*2* - Cursos oferecidos pela instituição👩🏻‍🎓`);
+                    sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo✏️`);
+                    sendWppMessage(client, message.from, `*4* - Matricula / Documentação📄`);
+                    sendWppMessage(client, message.from, `*5* - Padaria do frei🥐🥯`);
+                    sendWppMessage(client, message.from, `*6* - Encerrar Atendimento❌`);
                     userStages[message.from] = 'Nome'; 
 
                 }
-                else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'NÃO' || message.body == 'não' || message.body == 'Fim' || message.body == 'fim' || message.body == 'FIM'){
-                        sendWppMessage(client, message.from, `Fim,
-            
-quer voltar pro inicio? digite *oi*`); 
+                else if(message.body == 'Nao' || message.body == 'NAO' || message.body == 'nao' || message.body == 'Não' || message.body == 'N' || message.body == 'n' || message.body == 'NÃO' || message.body == 'não' || message.body == 'Fim' || message.body == 'fim' || message.body == 'FIM'){
+                        sendWppMessage(client, message.from, `Esperamos que as informações tenham sido úteis😉! Caso tenha mais alguma dúvida ou precisar de informações adicional
+
+digite *oi*`); 
                                 
                     userStages[message.from] = 'option2'; 
                 }
@@ -52,24 +52,17 @@ quer voltar pro inicio? digite *oi*`);
                 case 'option2':
                     if (message.body == 'oi' || message.body == 'Oi' || message.body == 'OI') {
                         sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                        sendWppMessage(client, message.from, `*1* - Sobre a Escola do frei`);
-                        sendWppMessage(client, message.from, `*2* - Cursos oferecidos pela instituição`);
-                        sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo`);
-                        sendWppMessage(client, message.from, `*4* - Matricula / Documentação`);
-                        sendWppMessage(client, message.from, `*5* - Padaria do frei`);
-                        sendWppMessage(client, message.from, `*6* - Sobre a feira de profissões`);
-                        sendWppMessage(client, message.from, `*7* - Encerrar Atendimento`);
+                        sendWppMessage(client, message.from, `*1* - Sobre a Escola do frei🏫`);
+                        sendWppMessage(client, message.from, `*2* - Cursos oferecidos pela instituição👩🏻‍🎓`);
+                        sendWppMessage(client, message.from, `*3* - Inscrições / Processo Seletivo✏️`);
+                        sendWppMessage(client, message.from, `*4* - Matricula / Documentação📄`);
+                        sendWppMessage(client, message.from, `*5* - Padaria do frei🥐🥯`);
+                        sendWppMessage(client, message.from, `*6* - Encerrar Atendimento❌`);
                         userStages[message.from] = 'Nome:'; 
                     }
                     break;
 
-                    case 'feira': 
-                        sendWppMessage(client, message.from, 'Digite o numero da opção que deseja saber:');
-                        sendWppMessage(client, message.from, `*1* - Empresas convidadas👨🏻‍💼`);
-                        sendWppMessage(client, message.from, '*2* - Outras exposições📰');
-                        sendWppMessage(client, message.from, '*3* - Exposições de Cada Sala e Andar🏢');
-                        userStages[message.from] = 'optionfeira'
-                    break;    
+                      
 
             case 'Nome':
                 if(message.body == '1'){
@@ -91,7 +84,7 @@ sendWppMessage(client, message.from, `Av. Coronel Octaviano de Freitas Costa, 46
 https://goo.gl/maps/pwAU32ZfvSMSYqMZA
 
 
-Para Voltar para ver mais opções digite *Voltar*
+Para Voltar para ver mais opções digite *Voltar*⬅↩️
 Para finalizar o atendimento digite *Fim*`);
 
 userStages[message.from] = 'option'
@@ -103,28 +96,28 @@ userStages[message.from] = 'option'
                     
 No termino de todos os cursos, o aluno receberá o certificado ou diploma de conclusão.
 
-Veja abaixo todos os cursos que o instituto disponibiliza:`);
+⬇️Veja abaixo todos os cursos que o instituto disponibiliza:`);
                     
                     
             
                     sendWppMessage(client, message.from, `Cursos Técnicos: 
-- Administração: Gerenciamento empresarial e conhecimento em diversas áreas administrativas, 12 meses, carga horária total: 1000 horas. 
-- Informática: Linguagem de programação, bancos de dados e redes, 12 meses, carga horária total: 1200 horas. 
-- Comunicação Visual: Design e produção gráfica, 12 meses, carga horária total: 1000 horas.`);
+- 🧑‍💼Administração: Gerenciamento empresarial e conhecimento em diversas áreas administrativas, 12 meses, carga horária total: 1000 horas. 
+- 👨🏻‍💻Informática: Linguagem de programação, bancos de dados e redes, 12 meses, carga horária total: 1200 horas. 
+- 👩🏻‍🎨Comunicação Visual: Design e produção gráfica, 12 meses, carga horária total: 1000 horas.`);
 
                     sendWppMessage(client, message.from, `Cursos de Qualificação:
-- *Eletrotécnica*: Eletricidade e sistemas eletrônicos, 12 meses, carga horária total: 1000 horas.
+- 🧑‍🏭*Eletrotécnica*: Eletricidade e sistemas eletrônicos, 12 meses, carga horária total: 1000 horas.
  
-- *Eletromecânica*: Manutenção de sistemas mecânicos e elétricos, 12 meses, carga horária total: 1000 horas.`);
+- 🧑🏻‍🔧*Eletromecânica*: Manutenção de sistemas mecânicos e elétricos, 12 meses, carga horária total: 1000 horas.`);
 
 sendWppMessage(client, message.from, `Cursos Livres:
-- *Inglês*: Com diversos níveis e horários disponíveis (tens, básico, médio, pré-avançado e avançado), consultar os horários disponíveis para cada curso, 12 meses, carga horária total: 500 horas.
+- 🧑🏼‍🏫🇺🇸*Inglês*: Com diversos níveis e horários disponíveis (tens, básico, médio, pré-avançado e avançado), consultar os horários disponíveis para cada curso, 12 meses, carga horária total: 500 horas.
 
-- *Eletricista Instalador*: Instalação e manutenção elétrica, 06 meses, noturno, carga horária total: 120 horas
+- 👷🏻‍♂️*Eletricista Instalador*: Instalação e manutenção elétrica, 06 meses, noturno, carga horária total: 120 horas
 
-- *Informática Básica* – Excel: Conhecimentos básicos de informática e pacote office, 06 meses, noturno, carga horária total: 120 horas
+- 🧑🏻‍💻*Informática Básica* – Excel: Conhecimentos básicos de informática e pacote office, 06 meses, noturno, carga horária total: 120 horas
 
-Para Voltar para ver mais opções digite *Voltar*
+Para Voltar para ver mais opções digite *Voltar*↩️
 Para finalizar o atendimento digite *Fim*`);
                 
 
@@ -133,14 +126,16 @@ userStages[message.from] = 'option'
 }
 
                 else if(message.body == '3'){
-                    sendWppMessage(client, message.from, `As inscrições para 2024 começaram em 17 de outubro de 2023, o candidato deve se inscrever pelo aplicativo e agendar o dia e a hora para finalizar a inscrição no instituto.
+                    sendWppMessage(client, message.from, `As inscrições para 2024 começaram em 17 de outubro de 2023📆
+O candidato deve se inscrever pelo aplicativo e agendar o dia e a hora para finalizar a inscrição no instituto📝.
+
 Após finalizar a sua inscrição, você receberá o manual do candidato, onde terá o número de sua inscrição, o local, a data e a hora da prova do processo seletivo. No manual também haverá informações do procedimento de matrícula caso seja aprovado(a).`);
                     
-sendWppMessage(client, message.from, `Acompanhe nossas redes sociais e fique por dentro de tudo que acontece no instituto, através de nossas redes informaremos, o link para baixar o aplicativo das inscrições, a data de início, data da prova, resultado da prova.
+sendWppMessage(client, message.from, `Acompanhe nossas redes sociais e fique por dentro de tudo que acontece no instituto🤳🏾, através de nossas redes informaremos, o link para baixar o aplicativo das inscrições, a data de início, data da prova, resultado da prova.
 acaonsfatima.org.br, instagram, facebook e linkedin
 
 
-Para Voltar para ver mais opções digite *Voltar*
+Para Voltar para ver mais opções digite *Voltar*↩️
 Para finalizar o atendimento digite *Fim*`);
 
 
@@ -149,30 +144,37 @@ userStages[message.from] = 'option';
                 }
 
                 else if(message.body == '4'){
-                    sendWppMessage(client, message.from, `Só poderão efetuar a matrícula, os alunos aprovados no processo seletivo.`);
+                    sendWppMessage(client, message.from, `Só poderão efetuar a matrícula, os alunos aprovados no processo seletivo.✅`);
                     sendWppMessage(client, message.from, `O resultado do processo seletivo ficará disponível em nosso site, caso seu nome esteja na lista de aprovados, você deverá comparecer no instituto para efetuar sua matrícula.`);
-                    sendWppMessage(client, message.from, `Acompanhe nossas redes sociais e fique por dentro de tudo que acontece no instituto 
-acaonsfatima.org.br, instagram, facebook e linkedin`);
 
-sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+
+sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*↩️
 Para finalizar o atendimento digite *Fim*`);
 
 userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '5'){
-                    sendWppMessage(client, message.from, `Nossa padaria oferece uma variedade de produtos que vão além de simples pães, mas sim, do tradicional pão fresquinho, pães salgados, croissants, bolos, pães doces, torradas e muito mais. Os produtos são preparados diariamente, com muito carinho e qualidade.`);
+                    sendWppMessage(client, message.from, `Nossa padaria oferece uma variedade de produtos que vão além de simples pães:
+
+pães salgados🥖
+croissants🥐
+bolos🍰
+torradas🍞
+doces🥯
+ 
+e muito mais.Os produtos são preparados diariamente, com muito carinho e qualidade.🥰`);
                 
-                    sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*
+                    sendWppMessage(client, message.from, `Para Voltar para ver mais opções digite *Voltar*⬅↩️
 Para finalizar o atendimento digite *Fim*`);
 
 userStages[message.from] = 'option'
                 }
 
                 else if(message.body == '6'){
-                    sendWppMessage(client, message.from, `Esperamos que as informações tenham sido úteis! Caso tenha mais alguma dúvida ou precisar de informações adicional, entre em contato conosco.
+                    sendWppMessage(client, message.from, `Esperamos que as informações tenham sido úteis! Caso tenha mais alguma dúvida ou precisar de informações adicional😉, entre em contato conosco.
                     
-Para iniciar o atendimento novamente digite *Voltar*`);
+Para iniciar o atendimento novamente digite *Voltar*↩️`);
                     userStages[message.from] = 'option'
                 }
             break;
